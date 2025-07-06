@@ -1,0 +1,70 @@
+﻿@model EntityLayer.Concrete.Treatment
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<section class="page-title">
+    <div class="bg-layer" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>@Model.Name</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/Default/Index/">Anasayfa</a></li>
+                <li>Hastalık Detayları</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="service-details p_relative">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @await Component.InvokeAsync("_TreatmentCategoryPartial")
+
+
+            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                <div class="service-details-content">
+                    <div class="content-one">
+                        <div class="text">
+                            <h2>@Model.Name</h2>
+                            <p>@Model.Description</p>
+
+                        </div>
+                        <figure class="image-box"><img src="~/Optcare-Pack/Optcare/assets/images/service/service-8.jpg" alt=""></figure>
+                    </div>
+                    <div class="content-two">
+                        <div class="text">
+                            <h3>Görme taramaları yetersiz test ekipmanı kullanıyor.</h3>
+                            <p>@Model.Description2</p>
+
+                        </div>
+                    </div>
+                    <div class="content-three">
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-6 col-sm-12 text-column">
+                                <div class="text mr_30">
+                                    <h3>Kapsamlı göz muayeneleri</h3>
+                                    <p>@Model.Description3</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                <figure class="image-box mt_5"><img src="~/Optcare-Pack/Optcare/assets/images/service/service-9.jpg" alt=""></figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-four">
+                        <div class="text">
+                            <h3>Cerrahi prosedürlerin faydaları</h3>
+                            <p>Cerrahi prosedürler, sağlık sorunlarını tedavi etmek, yaşam kalitesini artırmak ve bazı hastalıkların ilerlemesini durdurmak için önemli bir yöntemdir. Ameliyatlar, ağrıyı azaltabilir, organ fonksiyonlarını düzeltebilir ve ciddi komplikasyonları önleyebilir. Ayrıca, estetik cerrahiler fiziksel görünümü iyileştirirken, acil cerrahiler hayat kurtarıcı olabilir. Uygun hastalarda cerrahi, ilaç veya diğer tedavilere göre daha kalıcı çözümler sunabilir.</p>
+                            <ul class="list-style-one clearfix">
+                                <li>@Model.Feature1</li>
+                                <li> @Model.Feature2</li>
+                                <li>@Model.Feature3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

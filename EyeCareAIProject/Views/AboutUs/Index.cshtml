@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<!-- Page Title -->
+<section class="page-title">
+    <div class="bg-layer" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>Hakkımızda</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/Default/Index/">Anasayfa</a></li>
+                <li>Hakkımızda</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- End Page Title -->
+@await Component.InvokeAsync("_AboutPartial")
+@await Component.InvokeAsync("_ServicePartial")
+@await Component.InvokeAsync("_ChooseUsPartial")
+@await Component.InvokeAsync("_HomeStatisticPartial")
+@await Component.InvokeAsync("_ProcessPartial")
+@await Component.InvokeAsync("_TeamPartial")

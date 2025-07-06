@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+   
+    <title>Eyecare Template Preview</title>
+    @await Html.PartialAsync("/Views/LayoutPartial/_StylesPartial.cshtml")
+
+
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+    <div class="boxed_wrapper">
+
+
+        <!-- preloader -->
+        @await Component.InvokeAsync("_InfoPartial")
+        @await Html.PartialAsync("/Views/LayoutPartial/_PreLoaderPartial.cshtml")
+        <!-- preloader end -->
+        <!--Search Popup-->
+        @await Html.PartialAsync("/Views/LayoutPartial/_SearchPopupPartial.cshtml")
+
+        <!-- main header -->
+        @await Html.PartialAsync("/Views/LayoutPartial/_HeaderPartial.cshtml")
+        <!-- main-header end -->
+        <!-- Mobile Menu  -->
+         @await Html.PartialAsync("/Views/LayoutPartial/_MobileMenuPartial.cshtml")
+       <!-- banner-section -->
+
+        <!-- banner-section end -->
+        <!-- feature-section -->
+        
+        @RenderBody()
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <i class="fal fa-long-arrow-up"></i>
+        </button>
+
+    </div>
+
+
+    <!-- jequery plugins -->
+    <!-- map script -->
+    @await Html.PartialAsync("/Views/LayoutPartial/_FooterPartial.cshtml")
+
+    @await Html.PartialAsync("/Views/LayoutPartial/_ScriptsPartial.cshtml")
+
+    <!-- main-js -->
+
+
+</body><!-- End of .page_wrapper -->
+</html>
+

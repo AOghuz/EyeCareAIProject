@@ -1,0 +1,40 @@
+﻿﻿@if (User.Identity.IsAuthenticated)
+{
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                <div class="blog-details-content">
+                    <div class="comments-form-area">
+                        <h3>Bir yorum bırakın</h3>
+                        <div class="form-inner">
+                            <form method="post" asp-action="AddComment" asp-controller="Comment">
+                                <input type="hidden" name="BlogId" value="@ViewBag.blogID" />
+                                <input type="hidden" name="AppUserID" value="@ViewBag.userID" />
+                                <div class="row clearfix">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <textarea name="CommentContent" placeholder="Yorumunuz"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <div class="check-box">
+                                        <input class="check" type="checkbox" id="checkbox">
+                                        <label for="checkbox"> İşaretli alanları doldurmanız gerekmektedir.</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0">
+                                    <button class="theme-btn btn-one" type="submit" name="submit-form">Mesaj Gönder</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h2>Yorum yapabilmek için üye olmanız gerekli.</h2>
+}

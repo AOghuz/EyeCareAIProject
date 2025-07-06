@@ -1,0 +1,94 @@
+﻿@model EntityLayer.Concrete.Treatment
+
+@{
+    ViewData["Title"] = "UpdateTreatment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h2 class="mb-4">Tedavi Bilgilerini Güncelle</h2>
+
+<form asp-action="UpdateTreatment" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="TreatmentId" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" placeholder="Tedavi Adı" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Açıklama 1</label>
+        <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description2">Açıklama 2</label>
+        <textarea asp-for="Description2" class="form-control" rows="2"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description3">Açıklama 3</label>
+        <textarea asp-for="Description3" class="form-control" rows="2"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description4">Açıklama 4</label>
+        <textarea asp-for="Description4" class="form-control" rows="2"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Feature1">Özellik 1</label>
+        <input asp-for="Feature1" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Feature2">Özellik 2</label>
+        <input asp-for="Feature2" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Feature3">Özellik 3</label>
+        <input asp-for="Feature3" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageURL">Ana Görsel (Yol)</label>
+        <input asp-for="ImageURL" class="form-control" placeholder="ör: /TreatmentImages/xyz.jpg" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Icon">İkon (HTML class)</label>
+        <input asp-for="Icon" class="form-control" placeholder="ör: flaticon-eye" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HomeIcon">Anasayfa İkonu (HTML class)</label>
+        <input asp-for="HomeIcon" class="form-control" placeholder="ör: icon-health" />
+    </div>
+    <div class="form-group">
+        <label>Mevcut Görsel</label><br />
+        @if (!string.IsNullOrEmpty(Model.ImageURL))
+        {
+            <img src="/TreatmentImages/@Model.ImageURL" alt="Mevcut Görsel" style="max-height:150px;" />
+        }
+        else
+        {
+            <p><em>Yüklenmiş görsel yok</em></p>
+        }
+    </div>
+
+    <div class="form-group">
+        <label>Yeni Görsel Yükle</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+    <a href="@Url.Action("Index", "Treatment", new { area = "Admin" })" class="btn btn-secondary mt-3">İptal</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@model List<ContactUs>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+<h1>Bize Ulaşın Mesajları</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Gönderen</th>
+        <th>Konu</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Mesajı Aç</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        sayac++;
+        <tr>
+            <td>@sayac</td>
+            <td>@item.Name</td>
+            <td>@item.Subject</td>
+            <td>@item.MessageDate?.ToString("dd.MMMM.yyyy")</td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td>
+                <button class="btn btn-dark" data-toggle="modal" data-target="#messageModal-@item.Id">Mesajı Aç</button>
+            </td>
+        </tr>
+
+        <!-- Modal -->
+        <div class="modal fade" id="messageModal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-@item.Id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-white">
+                        <h5 class="modal-title" id="exampleModalLabel-@item.Id">@item.Subject</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Gönderen:</strong> @item.Name</p>
+                        <p><strong>Tarih:</strong> @item.MessageDate?.ToString("dd.MM.yyyy HH:mm")</p>
+                        <hr />
+                        <p>@item.Body</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</table>

@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Benefit>
+<section class="feature-section p_relative">
+    <div class="auto-container">
+        <div class="inner-container p_relative d_block">
+            <div class="shape-layer" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/shape/shape-17.png);"></div>
+            <div class="title-box p_relative d_block centred">
+                <h2>Halkalı Göz ile Avantajlar</h2>
+
+            </div>
+            <div class="row clearfix">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-6 col-sm-12 feature-block">
+                        <div class="feature-block-one wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box p_relative d_block">
+                                <div class="icon-box p_relative d_block"><i class="@item.Description"></i></div>
+                                <h3><a href="index.html">@item.Title</a></h3>
+                                <p>@item.SubTitle</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>

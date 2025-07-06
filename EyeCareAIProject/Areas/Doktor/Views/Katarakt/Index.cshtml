@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Doktor/Views/AdminLayout/Index.cshtml";
+}
+
+<h2 style="font-family: Arial; color: #2c3e50;">📷 Katarakt Sınıflandırma</h2>
+
+<!-- Özelleştirilmiş Dosya Girişi -->
+<div style="margin-bottom: 10px;">
+    <label for="imageInput" style="background-color: #2ecc71; color: white; padding: 8px 14px; border-radius: 5px; cursor: pointer;">📁 Dosya Seç</label>
+    <input type="file" id="imageInput" style="display: none;" />
+    <button onclick="uploadImage()" style="margin-left: 10px; padding: 8px 12px; background-color: #3498db; color: white; border: none; border-radius: 5px;">📤 Resmi Gönder</button>
+</div>
+
+<p id="loadingMessage" style="display: none; color: orange;">⏳ Resim yükleniyor...</p>
+<p id="predictedClass" style="font-weight: bold; font-size: 18px;"></p>
+
+<canvas id="pieChart" width="500" height="500" style="display: none; margin-left: 350px;"></canvas>
+
+
+<!-- Chart.js ve eklenti -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
+<script>
+    let currentChart = null;
+
+    function uploadImage() {
+        let fileInput = document.getElementById('imageInput').files[0];
+
+        if (!fileInput) {
+            alert("Lütfen bir resim seçin.");
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append("file", fileInput);
+
+        document.getElementById('loadingMessage').style.display = 'block';
+        document.getElementById('predictedClass').innerText = '';
+        document.getElementById('pieChart').style.display = 'none';
+
+        fetch(`https://localhost:7181/api/AIProcessing/upload`, {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('loadingMessage').style.display = 'none';
+
+                let jsonData = JSON.parse(data);
+                let percentages = jsonData.class_percentages;
+                let predicted = jsonData.predicted_class;
+
+                document.getElementById('predictedClass').innerText = `📌 Tahmin Edilen Sınıf: ${predicted}`;
+                document.getElementById('pieChart').style.display = 'block';
+
+                let labels = Object.keys(percentages);
+                let values = Object.values(percentages);
+
+                let ctx = document.getElementById('pieChart').getContext('2d');
+
+                // 🔄 Önceki grafiği temizle
+                if (currentChart !== null) {
+                    currentChart.destroy();
+                }
+
+                currentChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: values,
+                            backgroundColor: ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6'],
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Sınıf Dağılımı (%)',
+                                font: { size: 16 },
+                                color: '#34495e'
+                            },
+                            datalabels: {
+                                color: '#fff',
+                                font: {
+                                    weight: 'bold',
+                                    size: 12
+                                },
+                                formatter: (value, context) => {
+                                    return context.chart.data.labels[context.dataIndex];
+                                }
+                            }
+                        }
+                    },
+                    plugins: [ChartDataLabels]
+                });
+            })
+            .catch(error => {
+                console.error("Hata:", error);
+                document.getElementById('loadingMessage').innerText = '⚠️ Bir hata oluştu.';
+            });
+    }
+</script>

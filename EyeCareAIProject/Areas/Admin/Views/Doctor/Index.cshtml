@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<Doctor>
+
+@{
+    ViewData["Title"] = "Doktor Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Doktor Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Doktor Adı</th>
+        <th>Uzmanlık</th>
+        <th>Tıbbi Birim</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.DoctorId</td>
+            <td>@(item.AppUser != null ? (item.AppUser.FirstName + " " + item.AppUser.LastName) : "Bilinmiyor")</td>
+            <td>@(item.Specialization ?? "Belirtilmemiş")</td>
+            <td>@(item.Treatment != null ? item.Treatment.Name : "Belirtilmemiş")</td>
+            <td>@(item.Status == true ? "Aktif" : "Pasif")</td>
+            <td>
+                <a href="/Admin/Doctor/DeleteDoctor/@item.DoctorId" class="btn btn-danger">Sil</a>
+                
+            </td>
+            <td>
+                <a href="/Admin/Doctor/UpdateDoctor/@item.DoctorId" class="btn btn-success">Güncelle</a>
+
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/Doctor/AddDoctor" class="btn btn-outline-primary">Yeni Doktor Ekle</a>

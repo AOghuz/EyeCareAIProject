@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Randevular";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Randevular</h2>
+
+<div class="row mb-3">
+    <div class="col-md-5">
+        <input type="text" id="patientTc" class="form-control" maxlength="11"
+               oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,11)" placeholder="Hasta TC girin" />
+    </div>
+    <div class="col-md-5">
+        <input type="text" id="doctorTc" class="form-control" maxlength="11"
+               oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,11)" placeholder="Doktor TC girin" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary w-100" onclick="filterAppointments()">Filtrele</button>
+    </div>
+</div>
+
+<table class="table table-bordered mt-3" id="appointmentsTable">
+    <thead>
+        <tr>
+            <th>Tarih</th>
+            <th>Saat</th>
+            <th>Hasta</th>
+            <th>Hasta TC</th>
+            <th>Doktor</th>
+            <th>Doktor TC</th>
+            <th>Tedavi</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section Scripts {
+    <script>
+        function filterAppointments() {
+            const patientTc = $('#patientTc').val().trim();
+            const doctorTc = $('#doctorTc').val().trim();
+            const table = $('#appointmentsTable tbody');
+
+            table.empty();
+
+            // Sadece bir alan 11 haneliyse işlem yap
+            if (patientTc.length === 11 && doctorTc.length === 11) {
+                alert("Lütfen sadece bir TC giriniz: Hasta veya Doktor.");
+                return;
+            }
+
+            if (patientTc.length === 11) {
+                $.get('/Admin/Appointment/GetByPatientTc', { tc: patientTc }, renderAppointments);
+                return;
+            }
+
+            if (doctorTc.length === 11) {
+                $.get('/Admin/Appointment/GetByDoctorTc', { doctorTc: doctorTc }, renderAppointments);
+                return;
+            }
+
+            if (!patientTc && !doctorTc) {
+                $.get('/Admin/Appointment/GetAllAppointments', {}, renderAppointments);
+                return;
+            }
+
+            alert("TC numarası 11 haneli olmalıdır.");
+        }
+
+        function renderAppointments(data) {
+            const table = $('#appointmentsTable tbody');
+            table.empty();
+
+            if (!data || data.length === 0) {
+                table.append('<tr><td colspan="8" class="text-center">Kayıt bulunamadı</td></tr>');
+                return;
+            }
+
+            data.forEach(item => {
+                table.append(`
+                            <tr>
+                                <td>${item.date}</td>
+                                <td>${item.time}</td>
+                                <td>${item.patientName}</td>
+                                <td>${item.patientTc}</td>
+                                <td>${item.doctorName}</td>
+                                <td>${item.doctorTc}</td>
+                                <td>${item.treatment}</td>
+                                <td>${item.description ?? '-'}</td>
+                            </tr>
+                        `);
+            });
+        }
+    </script>
+}

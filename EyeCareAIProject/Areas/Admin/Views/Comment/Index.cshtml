@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+@{
+    ViewData["Title"] = "Yorum Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yorum Listesi</h1>
+
+<form method="get" action="/Admin/Comment/Index">
+    <label>Blog Başlığı</label>
+    <select name="blogId" class="form-control" asp-items="ViewBag.Blogs">
+        <option value="">-- Seçiniz --</option>
+    </select>
+    <button type="submit" class="btn btn-primary mt-2">Filtrele</button>
+</form>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>#</th>
+        <th>Kullanıcı</th>
+        <th>Blog Başlığı</th>
+        <th>Tarih</th>
+        <th>Mesaj</th>
+        <th>Aksiyon</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CommentId</td>
+            <td>@(item.AppUser != null ? item.AppUser.FirstName + " " + item.AppUser.LastName : "Bilinmiyor")</td>
+            <td>@(item.Blog?.Title ?? "Bilinmiyor")</td>
+            <td>@item.CommentDate?.ToString("dd MMMM yyyy")</td>
+
+            <!-- Modal Tetikleyici Buton -->
+            <td>
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#commentModal-@item.CommentId">
+                    Mesajı Gör
+                </button>
+            </td>
+
+            <td>
+                <a href="/Admin/Comment/DeleteComment/@item.CommentId" class="btn btn-danger btn-sm">Sil</a>
+            </td>
+        </tr>
+
+        <!-- Modal -->
+        <div class="modal fade" id="commentModal-@item.CommentId" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel-@item.CommentId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="commentModalLabel-@item.CommentId">Yorum Detayı</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Kapat">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Kullanıcı:</strong> @(item.AppUser?.FirstName + " " + item.AppUser?.LastName ?? "Anonim")</p>
+                        <p><strong>Blog:</strong> @(item.Blog?.Title ?? "Bilinmiyor")</p>
+                        <hr />
+                        <p>@item.CommentContent</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</table>

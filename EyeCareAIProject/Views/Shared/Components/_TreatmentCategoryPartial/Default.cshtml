@@ -1,0 +1,22 @@
+﻿@using EntityLayer.Concrete
+@model List<Treatment>
+
+<div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+    <div class="service-sidebar mr_40">
+        <div class="text">
+            <h3>Tıbbi Birimlerimiz</h3>
+        </div>
+        <ul class="category-list clearfix">
+            @foreach (var item in Model)
+            {
+               
+                <li>
+                    <a href="/Treatment/Details/@item.TreatmentId"
+                       class="@(ViewBag.SelectedTreatmentId != null && ViewBag.SelectedTreatmentId == item.TreatmentId ? "current" : "")">
+                        @item.Name
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

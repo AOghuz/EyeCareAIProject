@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<section class="appointment-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- Flatpickr CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 calander-column">
+                <div class="calander-inner mr_20">
+                    <div id="datepicker" class="datepicker">
+                        <div class="datepicker-header"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <style>
+                .calander-column {
+                    display: flex;
+                    justify-content: flex-start; /* Sol tarafa hizalar */
+                    align-items: center;
+                    padding: 10px;
+                }
+
+                .calander-inner {
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    background: #fff;
+                    max-width: px; /* Genişlik */
+                    min-height: 400px; /* Minimum yükseklik */
+                    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+                    border-radius: 5px;
+                }
+
+                .flatpickr-calendar {
+                    width: 100%;
+                    min-height: 350px;
+                    display: block !important; /* Takvimin her zaman görünmesini sağlıyor */
+                    position: static !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                }
+            </style>
+            <!-- Flatpickr JS -->
+            <div class="col-lg-6 col-md-12 col-sm-12 form-column">
+                <div class="form-inner ml_40">
+                    <h3>Fill Appointment Form</h3>
+                    <form action="appointment.html" method="post">
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="text" name="fname" placeholder="First name*" required="">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="text" name="lname" placeholder="Last name*" required="">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <input type="email" name="email" placeholder="Email*" required="">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <input type="text" name="phone" placeholder="Phone" required="">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <div class="select-box">
+                                    <select class="wide">
+                                        <option data-display="Select subject*">Select subject*</option>
+                                        <option value="1">Surgical Procedures</option>
+                                        <option value="2">Paeditaric Ophthalmology</option>
+                                        <option value="3">Lenses Transitions</option>
+                                        <option value="4">Laser Eye Surgery</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <div class="icon"><i class="icon-42"></i></div>
+                                <input type="text" name="date" placeholder="mm/dd/yyyy" id="datepicker">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <div class="check-box">
+                                    <input class="check" type="checkbox" id="checkbox">
+                                    <label for="checkbox">Preferred date you would like to book appointment</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <textarea name="message" placeholder="" Type Message></textarea>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                <button type="submit" class="theme-btn btn-one">Randevu Al.</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

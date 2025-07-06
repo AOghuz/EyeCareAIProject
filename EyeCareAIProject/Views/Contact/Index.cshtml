@@ -1,0 +1,61 @@
+﻿@using DTOLayer.DTOs.ContactDTOs
+@model SendMessageDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+@await Component.InvokeAsync("_ContactInfoPartial")
+
+<section class="contact-style-two p_relative">
+    <div class="pattern-layer">
+        <div class="pattern-1" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/shape/shape-55.png);"></div>
+        <div class="pattern-2" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/shape/shape-56.png);"></div>
+    </div>
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12 col-sm-12 big-column offset-lg-2">
+                <div class="form-inner">
+                    <h2>İletişime geç.</h2>
+                    <form method="post" class="signin-form">
+                        <div class="row clearfix">
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="text" placeholder="Adınız*" asp-for="Name" class="contact-input form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="email" placeholder="Mail Adresiniz*" asp-for="Mail" class="contact-input form-control" />
+                                <span asp-validation-for="Mail" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="text" placeholder="Telefon*" asp-for="PhoneNumber" class="contact-input form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="text" placeholder="Konu*" asp-for="Subject" class="contact-input form-control" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <textarea asp-for="MessageBody" placeholder="Bu alana mesajınızı yazabilirsiniz*" class="form-control" required=""></textarea>
+                                <span asp-validation-for="MessageBody" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 centred">
+                                <button class="theme-btn btn-one" type="submit">Gönder</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@await Component.InvokeAsync("_MapPartial")

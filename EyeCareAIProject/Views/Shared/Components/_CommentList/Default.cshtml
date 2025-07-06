@@ -1,0 +1,26 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+<div class="auto-container">
+    <div class="row clearfix">
+        <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+            <div class="blog-details-content">
+                <h4 class="side-title ">Yorumlar (@ViewBag.commentCount)</h4>
+                @foreach (var item in Model)
+                {
+                    <div class="author-box">
+                        <figure class="author-thumb">
+                            <img src="@item.AppUser?.ImageUrl" alt="">
+                        </figure>
+                        <h3>@item.AppUser?.FirstName @item.AppUser?.LastName</h3>
+                        <p>@item.CommentContent</p>
+                        <span class="comment-date">
+                            @(item.CommentDate?.ToString("dd-MMM-yyyy") ?? "Tarih Yok")
+                        </span>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

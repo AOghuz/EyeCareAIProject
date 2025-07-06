@@ -1,0 +1,159 @@
+﻿@model EyeCareAIProject.Models.UserSigInViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+
+    <!-- External CSS (Bootstrap, Font Awesome, etc.) -->
+    <link rel="icon" type="image/png" href="~/Login_v1/images/icons/favicon.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Login_v1/css/style.css">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #3b8d99, #6b4f97);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+            .input-group input {
+                border-radius: 10px;
+                padding: 10px;
+                border: 1px solid #ddd;
+            }
+
+        .btn-custom {
+            width: 100%;
+            background: linear-gradient(to right, #3b8d99, #6b4f97);
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .social-btns {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+            .social-btns i {
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+        .forgot-password {
+            text-align: center;
+            font-size: 14px;
+        }
+
+            .forgot-password a {
+                color: #6b4f97;
+                text-decoration: none;
+            }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .signup-link a {
+                color: #6b4f97;
+                font-weight: bold;
+                text-decoration: none;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-form">
+            <div class="login-title">
+                Giriş Yap
+            </div>
+
+            <!-- Login Form -->
+            <form asp-action="SignIn" method="post">
+                @Html.AntiForgeryToken()
+
+                <!-- Validation Summary -->
+                <div style="color:red" asp-validation-summary="All"></div>
+
+                <!-- Username -->
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="TurkishIdentityNumber" placeholder="T.C. Kimlik Numarası" required />
+                    <span asp-validation-for="TurkishIdentityNumber" class="text-danger"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="input-group">
+                    <input type="password" class="form-control" asp-for="Password" placeholder="Şifre" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-custom">Giriş Yap</button>
+
+                <!-- Forgot Password Link -->
+                <div class="forgot-password">
+                    <a href="#">Şifrenizi mi unuttunuz?</a>
+                </div>
+
+                <!-- Social Media Login -->
+                
+
+                <!-- Sign Up Link -->
+                <div class="signup-link">
+                    <span>Henüz üye değil misiniz?</span> <a href="/Login/SignUp">Hesap oluştur</a>
+                </div>
+            </form>
+        </div>
+        <!-- 🔔 Mesajlar (Form içi, buton altı) -->
+       
+    </div>
+
+    <!-- External JS (jQuery, Bootstrap, etc.) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+
+
+</body>
+</html>

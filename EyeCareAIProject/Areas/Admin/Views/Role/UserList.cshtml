@@ -1,0 +1,34 @@
+﻿@using EyeCareAIProject.Areas.Admin.Models
+@model List<AppUserRoleViewModel>
+
+@{
+    ViewData["Title"] = "Kullanıcı Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kullanıcı Adı</th>
+        <th>Rol Ata</th>
+        <th>Rolleri</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UserName</td>
+            <td><a href="/Admin/Role/AssignRole/@item.Id" class="btn btn-warning btn-sm">Rol Ata</a></td>
+            <td>
+                @if (item.Roles != null && item.Roles.Any())
+                {
+                    @string.Join(", ", item.Roles)
+                }
+                else
+                {
+                    <span class="text-muted">Rol yok</span>
+                }
+            </td>
+        </tr>
+    }
+</table>

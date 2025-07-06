@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Treatment
+
+@{
+    ViewData["Title"] = "Yeni Tedavi Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Tedavi Ekle</h2>
+
+<form asp-action="AddTreatment" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Name">Tedavi Adı</label>
+        <input asp-for="Name" class="form-control" placeholder="Örn: Göz Tansiyonu" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Açıklama</label>
+        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Tedavi hakkında kısa açıklama..."></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Görsel Yükle</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Kaydet</button>
+    <a href="@Url.Action("Index", "Treatment", new { area = "Admin" })" class="btn btn-secondary mt-3">İptal</a>
+
+
+    <button type="submit" class="btn btn-success mt-3">Kaydet</button>
+    <a href="@Url.Action("Index", "Treatment", new { area = "Admin" })" class="btn btn-secondary mt-3">İptal</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

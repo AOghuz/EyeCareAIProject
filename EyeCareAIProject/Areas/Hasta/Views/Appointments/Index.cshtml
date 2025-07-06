@@ -1,0 +1,118 @@
+﻿@model EntityLayer.Concrete.Appointment
+
+@{
+    ViewData["Title"] = "Randevu Al";
+    Layout = "~/Views/Shared/_HastaLayout.cshtml";
+}
+
+<div class="container" style="margin-top: 100px;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Randevu Al</h4>
+                </div>
+                <div class="card-body">
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Success"]</div>
+                    }
+
+                    @* FORM BAŞLANGIÇ *@
+                    <form asp-area="Hasta" asp-controller="Appointments" asp-action="Index" method="post">
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <input type="hidden" asp-for="Status" value="Beklemede" />
+
+                        <div class="mb-3">
+                            <label asp-for="AppointmentDate" class="form-label">📅 Randevu Tarihi</label>
+                            <input asp-for="AppointmentDate" type="date" class="form-control" name="AppointmentDate" />
+                            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="AppointmentTime" class="form-label">⏰ Randevu Saati</label>
+                            <select asp-for="AppointmentTime" class="form-control" name="AppointmentTime">
+                                <option disabled selected value="">Saat seçin</option>
+                                @foreach (var time in new[] {
+                                "08:00", "08:30", "09:00", "09:30", "10:00", "10:30",
+                                "11:00", "11:30", "13:00", "13:30", "14:00", "14:30",
+                                "15:00", "15:30", "16:00", "16:30", "17:00" })
+                                {
+                                    <option value="@time">@time</option>
+                                }
+                            </select>
+                            <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TreatmentId" class="form-label">🏥 Tıbbi Birim</label>
+                            <select asp-for="TreatmentId" class="form-control" id="departmentSelect" name="TreatmentId">
+                                <option value="">Birim seçin</option>
+                                @foreach (var item in ViewBag.Treatments as List<SelectListItem>)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                            <span asp-validation-for="TreatmentId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="DoctorId" class="form-label">👨‍⚕️ Doktor Adı</label>
+                            <select asp-for="DoctorId" class="form-control" id="doctorSelect" name="DoctorId">
+                                <option value="">Lütfen önce birim seçin</option>
+                            </select>
+                            <span asp-validation-for="DoctorId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">📝 Açıklama</label>
+                            <textarea asp-for="Description" rows="4" class="form-control" name="Description" placeholder="Şikayetinizi yazabilirsiniz..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary">Randevu Al</button>
+                        </div>
+                    </form>
+                    @* FORM BİTİŞ *@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#departmentSelect').on('change', function () {
+                var treatmentId = $(this).val();
+                $('#doctorSelect').html('<option>Yükleniyor...</option>');
+
+                $.ajax({
+                    url: '/Hasta/Appointments/GetDoctorsByTreatment',
+                    type: 'GET',
+                    data: { treatmentId: treatmentId },
+                    success: function (data) {
+                        var options = '<option value="">Doktor seçin</option>';
+                        data.forEach(function (doc) {
+                            options += '<option value="' + doc.id + '">' + doc.name + '</option>';
+                        });
+                        $('#doctorSelect').html(options);
+                    },
+                    error: function () {
+                        $('#doctorSelect').html('<option>Hata oluştu</option>');
+                    }
+                });
+            });
+        });
+    </script>
+}

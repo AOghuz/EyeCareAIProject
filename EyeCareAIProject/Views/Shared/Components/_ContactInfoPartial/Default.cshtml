@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+<section class="contact-info-section centred">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-lg-4 col-md-6 col-sm-12 info-column">
+                    <div class="single-item">
+                        <div class="icon-box"><i class="icon-57"></i></div>
+                        <h3>Ofis Konumu</h3>
+                        <p>@item.Location <br />@item.Adress</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 info-column">
+                    <div class="single-item">
+                        <div class="icon-box"><i class="icon-58"></i></div>
+                        <h3>Şirket Mail</h3>
+                        <p><a href="mailto:oguz.abdussamet@std.izu.edu.tr">@item.Mail</a><br /><br /><br />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 info-column">
+                    <div class="single-item">
+                        <div class="icon-box"><i class="icon-59"></i></div>
+                        <h3>İletişim</h3>
+                        <p><a href="tel:+90 551 598 44 06">@item.PhoneNumber</a><br /><br /><br />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

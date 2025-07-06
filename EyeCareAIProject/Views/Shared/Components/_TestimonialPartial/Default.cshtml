@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+
+<section class="testimonial-section p_relative centred">
+    <div class="pattern-layer" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/shape/shape-6.png);"></div>
+    <div class="auto-container">
+        <div class="sec-title mb_60">
+            <span class="sub-title">Referanslar</span>
+            <h2>Müşterilerimiz bizim hakkımızda <br />Ne Dedi</h2>
+            <a href="/Testimonial/Index/" class="theme-btn btn-two">Bütün Referansları Gör</a>
+        </div>
+            <div class="two-item-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
+                @foreach (var item in Model)
+                    {
+                <div class="testimonial-block-one">
+                <div class="inner-box p_relative d_block">
+                    <div class="icon-box"><i class="icon-29"></i></div>
+                    <p>@item.Comment</p>
+                    <h4>@item.ClientName</h4>
+                    <span class="designation">@item.Job</span>
+                    
+                </div>
+                   
+            </div>
+            }
+        </div>
+        
+    </div>
+</section>

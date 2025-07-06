@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+<section class="google-map-section p_relative">
+    <div class="map-inner p_relative d_block">
+        <div class="map-w3ls">
+            <iframe src="@ViewBag.MapUrl"
+                    width="100%"
+                    height="450"
+                    style="border:0; display: block;"
+                    allowfullscreen=""
+                    loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="content-inner">
+        <div class="auto-container">
+            @foreach (var item in Model)
+            {
+                <div class="content-box p_relative d_block">
+                    <div class="title p_relative d_block">
+                        <h3>Çalışma Saatleri</h3>
+                    </div>
+                    <div class="schedule-box p_relative d_block">
+                        <ul class="schedule-list clearfix">
+                            <li>@item.WorkTime</li>
+                        </ul>
+                    </div>
+                    <div class="contact-info p_relative d_block">
+                        <h3>İletişim Bilgileri</h3>
+                        <ul class="info-list clearfix">
+                            <li><i class="fas fa-envelope"></i>E-Mail: <a href="mailto:@item.Mail">@item.Mail</a></li>
+                            <li><i class="icon-3"></i>Arayın: <a href="tel:@item.PhoneNumber">@item.PhoneNumber</a></li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

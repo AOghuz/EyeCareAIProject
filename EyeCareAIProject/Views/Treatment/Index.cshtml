@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrete
+@model List<Treatment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+
+ <section class="page-title">
+    <div class="bg-layer" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/background/page-title.jpg);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+            <h1>Tıbbi Birimlerimiz</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="/Default/Index/">Anasayfa</a></li>
+                <li>Tıbbi Birimlerimiz</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+<section class="service-page-section p_relative">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                    <div class="service-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <img src="/TreatmentImages/@item.ImageURL" alt="">
+                            <a href="/Treatment/Details/@item.TreatmentId"><i class="fas fa-link"></i></a>
+                        </figure>
+                        <div class="lower-content">
+                            <div class="icon-box"><i class="icon-17"></i></div>
+                                <h3><a href="/Treatment/Details/@item.TreatmentId">@item.Name</a></h3>
+                            <p class="p_relative d_block">@item.Description.</p>
+                                <div class="link p_relative d_block"><a href="/Treatment/Details/@item.TreatmentId">Devamını Oku.</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ }
+        </div>
+    </div>
+</section>

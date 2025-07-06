@@ -1,0 +1,98 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<section class="sidebar-page-container p_relative">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                <div class="blog-details-content">
+                    <div class="news-block-one">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <img src="/BlogImages/@Model.ImageURL" alt="@Model.Title">
+                            </figure>
+                            <div class="lower-content">
+                                <div class="inner">
+                                    <div class="category">
+                                        <a href="/Treatment/Details/@Model.TreatmentId">@Model.Treatment.Name</a>
+                                    </div>
+                                    <h3>@Model.Title</h3>
+                                    <ul class="post-info clearfix">
+                                        <li><i class="icon-34"></i> @Model.BlogDate?.ToString("dd MMM, yyyy")</li>
+                                        <li><i class="icon-35"></i> @Model.Owner</li>
+                                    </ul>
+                                    <p>@Model.LittleDesc</p>
+                                    <p>@Model.BigDesc</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-two">
+                        <h3>@Model.Treatment.Name</h3>
+                        <p>@Model.About</p>
+                    </div>
+                    <div class="post-tags">
+                        <ul class="tags-list clearfix">
+                            <li><h5>Etiketler:</h5></li>
+                            <li><a href="#">Göz Sağlığı</a></li>
+                            <li><a href="#">Göz Hastalıkları</a></li>
+                            <li><a href="#">Tedavi Yöntemleri</a></li>
+                        </ul>
+                    </div>
+              
+                </div>
+                @await Component.InvokeAsync("_CommentList",new {id= ViewBag.i})
+                @if (User.Identity.IsAuthenticated)
+{
+                @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml", new { id = ViewBag.BlogID })
+                }
+                else
+                {
+                    <h2>Yorum yapabilmek için üye olmanız gerekli.</h2>
+                }
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                <div class="blog-sidebar ml_40">
+                    <div class="sidebar-widget search-widget">
+                        <div class="widget-title">
+                            <h3>Arama</h3>
+                        </div>
+                        <div class="search-form">
+                            <form action="#" method="get">
+                                <div class="form-group">
+                                    <input type="search" name="search-field" placeholder="Arama" required="">
+                                    <button type="submit"><i class="icon-50"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget post-widget">
+                        <div class="widget-title">
+                            <h3>Son Yazılar</h3>
+                        </div>
+                        <div class="post-inner">
+                            @if (ViewBag.RecentPosts != null)
+                            {
+                                @foreach (var post in ViewBag.RecentPosts)
+                                {
+                                    <div class="post">
+                                        <figure class="post-thumb">
+                                            <a href="/Blog/Details/@post.BlogId">
+                                                <img src="/BlogImages/@post.ImageURL" alt="@post.Title">
+                                            </a>
+                                        </figure>
+                                        <h4><a href="/Blog/Details/@post.BlogId">@post.Title</a></h4>
+                                        <span class="post-date"><i class="icon-34"></i> @post.BlogDate?.ToString("dd MMM, yyyy")</span>
+                                    </div>
+                                }
+                            }
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<EntityLayer.Concrete.AppUser>
+@{
+    ViewData["Title"] = "Hasta Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hasta Listesi</h2>
+
+<form method="get" class="mb-3">
+    <label>TC Kimlik No ile Filtrele</label>
+    <input type="text" name="tc" class="form-control" placeholder="TC kimlik no (UserName)" />
+    <button class="btn btn-primary mt-2">Ara</button>
+</form>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ad Soyad</th>
+        <th>TC</th>
+        <th>Cinsiyet</th>
+        <th>Güncelle</th>
+        <th>Randevular</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName @item.LastName</td>
+            <td>@item.UserName</td>
+            <td>@item.Gender</td>
+            <td> <a href="/Admin/Patient/UpdatePatient/@item.Id" class="btn btn-info btn-sm">Güncelle</a></td>
+            <td>
+                <a href="/Admin/Patient/Appointments/@item.Id" class="btn btn-info btn-sm">Randevular</a>
+            </td>
+        </tr>
+    }
+</table>

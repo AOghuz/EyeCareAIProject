@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Randevularım";
+    Layout = "~/Views/Shared/_HastaLayout.cshtml";
+
+    var aktifRandevular = ViewBag.AktifRandevular as List<EntityLayer.Concrete.Appointment>;
+    var gecmisRandevular = ViewBag.GecmisRandevular as List<EntityLayer.Concrete.Appointment>;
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-primary">📋 Randevularım</h2>
+
+    <!-- Aktif Randevular -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">🟢 Aktif Randevular</h5>
+        </div>
+        <div class="card-body">
+            @if (aktifRandevular == null || !aktifRandevular.Any())
+            {
+                <div class="alert alert-info">Aktif bir randevunuz bulunmamaktadır.</div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Saat</th>
+                                <th>Doktor</th>
+                                <th>Bölüm</th>
+                                <th>Durum</th>
+                                <th>Açıklama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var r in aktifRandevular)
+                            {
+                                <tr>
+                                    <td>@(r.AppointmentDate?.ToString("dd.MM.yyyy"))</td>
+                                    <td>@r.AppointmentTime</td>
+                                    <td>@(r.Doctor?.AppUser?.FirstName) @(r.Doctor?.AppUser?.LastName)</td>
+                                    <td>@r.Treatment?.Name</td>
+                                    <td><span class="badge bg-warning text-dark">@r.Status</span></td>
+                                    <td>@r.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Geçmiş Randevular -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-secondary text-white">
+            <h5 class="mb-0">⚪ Geçmiş Randevular</h5>
+        </div>
+        <div class="card-body">
+            @if (gecmisRandevular == null || !gecmisRandevular.Any())
+            {
+                <div class="alert alert-info">Geçmiş randevunuz bulunmamaktadır.</div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Saat</th>
+                                <th>Doktor</th>
+                                <th>Bölüm</th>
+                                <th>Durum</th>
+                                <th>Açıklama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var r in gecmisRandevular)
+                            {
+                                <tr>
+                                    <td>@(r.AppointmentDate?.ToString("dd.MM.yyyy"))</td>
+                                    <td>@r.AppointmentTime</td>
+                                    <td>@(r.Doctor?.AppUser?.FirstName) @(r.Doctor?.AppUser?.LastName)</td>
+                                    <td>@r.Treatment?.Name</td>
+                                    <td>
+                                        <span class="badge @(r.Status == "İptal" ? "bg-danger" : "bg-success")">
+                                            @r.Status
+                                        </span>
+                                    </td>
+                                    <td>@r.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>

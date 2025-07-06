@@ -1,0 +1,63 @@
+﻿@using EntityLayer.Concrete
+@model List<SubAbout>
+<section class="about-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                <div class="image_block_one">
+                    <div class="image-box mr_30 pr_130 pb_100">
+                        <div class="shape" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/resource/about-1.jpg);"></div>
+                        <figure class="image"><img src="~/Optcare-Pack/Optcare/assets/images/resource/about-1.jpg" alt=""></figure>
+                        <div class="text p_absolute r_0 b_0">
+                            <h2>30</h2>
+                            <h4>Yıldır Bu Alanda Deneyim</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                <div class="content_block_one">
+                    <div class="content-box ml_30">
+                        @foreach (var item in Model)
+                        {
+                            <div class="sec-title left p_relative d_block mb_25">
+                                <span class="sub-title">Biz Kimiz?</span>
+                                <h2>@item.Title</h2>
+                            </div>
+                            <div class="text p_relative d_block">
+                                <p>@item.Description</p>
+                            </div>
+                        }
+                        <div class="inner-box">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                    <div class="single-item">
+                                        <h3>Misyonumuz</h3>
+                                        <ul class="list-style-one clearfix">
+                                            <li>Yüksek kaliteli işçilik</li>
+                                            <li>Şeffaf fiyatlandırma</li>
+                                            <li>Hızlı yanıt süreleri</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                    <div class="single-item">
+                                        <h3>Vizyonumuz</h3>
+                                        <ul class="list-style-one clearfix">
+                                            <li>Acil durum güç çözümleri</li>
+                                            <li>Kablolama ve kurulum</li>
+                                            <li>Tam kapsamlı elektrik tasarımı</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

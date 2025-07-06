@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Treatment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Tıbbi Birimler</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Bölüm</th>
+        <th>Sitede Gör</th>
+        <th>Doktorlar</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TreatmentId</td>
+            <td>@item.Name</td>
+            <td><a href="/Treatment/Details/@item.TreatmentId" class="btn btn-outline-info">Sitede Gör</a></td>
+
+            <td>
+                @if (item.Doctors != null && item.Doctors.Any())
+                {
+                    <ul>
+                        @foreach (var doctor in item.Doctors)
+                        {
+                            <li>@(doctor.AppUser != null ? (doctor.AppUser.FirstName + " " + doctor.AppUser.LastName) : "Bilinmiyor")</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span>Doktor Yok</span>
+                }
+            </td>
+            <td><a href="/Admin/Treatment/UpdateTreatment/@item.TreatmentId" class="btn btn-outline-success">Düzenle</a></td>
+            <td><a href="/Admin/Treatment/DeleteTreatment/@item.TreatmentId" class="btn btn-outline-danger">Sil</a></td>
+           
+        </tr>
+    }
+</table>
+
+<a href="/Admin/Treatment/AddTreatment" class="btn btn-outline-primary">Yeni Bölüm Ekle</a>

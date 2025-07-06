@@ -1,0 +1,17 @@
+﻿using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BusinnessLayer.Abstract
+{
+    public interface IAppUserService : IGenericService<AppUser>
+    {
+        AppUser TGetPatientByIdAsNoTracking(int id);
+        Context GetContext();  // Bunu ekle
+
+    }
+}

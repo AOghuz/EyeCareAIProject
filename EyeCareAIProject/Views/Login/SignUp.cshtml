@@ -1,0 +1,181 @@
+﻿@model EyeCareAIProject.Models.UserRegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Oluştur</title>
+
+    <!-- External CSS (Bootstrap, Font Awesome, etc.) -->
+    <link rel="icon" type="image/png" href="~/Login_v1/images/icons/favicon.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Login_v1/css/style.css">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .signup-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 26px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+            .input-group input {
+                border-radius: 10px;
+                padding: 10px;
+                border: 1px solid #ddd;
+            }
+
+        .btn-custom {
+            width: 100%;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .social-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+            .social-btns i {
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .login-link a {
+                color: #ff7e5f;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+        .forgot-password {
+            text-align: center;
+            font-size: 14px;
+        }
+
+            .forgot-password a {
+                color: #feb47b;
+                text-decoration: none;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <div class="signup-form">
+            <div class="signup-title">
+                Hesap Oluştur
+            </div>
+
+            <!-- Sign Up Form -->
+            <form asp-action="SignUp" method="post">
+                @Html.AntiForgeryToken()
+
+                <!-- Validation Summary -->
+                <div style="color:red" asp-validation-summary="All"></div>
+
+                <!-- First Name -->
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="Name" placeholder="Adınız" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Last Name -->
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="SurName" placeholder="Soyadınız" required />
+                    <span asp-validation-for="SurName" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <input type="date" class="form-control" asp-for="DateOfBirth" placeholder="Doğum Tarihi" required />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="Gender" placeholder="Cinsiyet" required />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <!-- T.C. Identity Number -->
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="TurkishIdentityNumber" placeholder="T.C. Kimlik Numarası" maxlength="11" required />
+                    <span asp-validation-for="TurkishIdentityNumber" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="input-group">
+                    <input type="email" class="form-control" asp-for="Mail" placeholder="E-posta adresiniz" required />
+                    <span asp-validation-for="Mail" class="text-danger"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="input-group">
+                    <input type="password" class="form-control" asp-for="Password" placeholder="Şifre" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="input-group">
+                    <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Şifreyi Tekrar Giriniz" required />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-custom">Kayıt Ol</button>
+
+                <!-- Social Media Sign Up -->
+                
+
+                <!-- Login Link -->
+                <div class="login-link">
+                    <span>Zaten bir hesabınız var mı?</span> <a href="/Login/SignIn">Giriş Yap</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- External JS (jQuery, Bootstrap, etc.) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

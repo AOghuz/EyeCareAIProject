@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+
+    <header class="main-header">
+    @if (Model != null && Model.Any()) // Eğer Model null veya boşsa, içeriği gösterme.
+    {
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="top-inner">
+                    @foreach (var item in Model)
+                    {
+                        <div class="left-column">
+                            <ul class="info clearfix">
+                                <li><i class="icon-2"></i> <a href="">@item.Adress , @item.Location</a></li>
+                                
+                                <li><i class="icon-3"></i>Arayın: <a href="">@item.PhoneNumber</a></li>
+                            </ul>
+                        </div>
+                        <div class="right-column">
+                            <div class="schedule"><i class="icon-4"></i>@item.WorkTime</div>
+                            <ul class="social-links clearfix">
+                                <li><a href="@item.FacebookURL"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="@item.InstagramURL"><i class="fab fa-instagram"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    
+}
+else
+{
+    <p>Bilgi bulunamadı.</p> <!-- Alternatif bir mesaj göster -->
+}

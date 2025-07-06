@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<section class="testimonial-style-three testimonial-page-section centred p_relative">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @foreach(var item in Model)
+            {
+                
+           
+            <div class="col-lg-6 col-md-6 col-sm-12 testimonial-block">
+                <div class="testimonial-content">
+                    <div class="inner-box">
+                        <div class="light-icon"><i class="icon-29"></i></div>
+                        <ul class="rating clearfix">
+                            <li><i class="icon-40"></i></li>
+                            <li><i class="icon-40"></i></li>
+                            <li><i class="icon-40"></i></li>
+                            <li><i class="icon-40"></i></li>
+                            <li><i class="icon-40"></i></li>
+                        </ul>
+                        <p>@item.Comment</p>
+                        <h4>@item.ClientName</h4>
+                        <span class="designation">@item.Job</span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+

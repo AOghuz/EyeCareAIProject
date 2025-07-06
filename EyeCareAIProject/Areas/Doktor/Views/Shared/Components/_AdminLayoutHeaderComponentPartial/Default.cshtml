@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var fullName = user != null ? $"{user.FirstName} {user.LastName}" : "Kullanıcı";
+    var email = user?.Email ?? "";
+    var imageUrl = string.IsNullOrEmpty(user?.ImageUrl) ? "/images/default-user.png" : "/UserImages/" + user.ImageUrl;
+}
+
+<header class="main-header dark-bg">
+    <a href="/Admin/Dashboard" class="logo dark-bg">
+        <span class="logo-mini">
+            <img src="~/images/logos/mulhtishop1.jpg" style="width:50px;height:50px;" alt="Logo" />
+        </span>
+        <span class="logo-lg">
+            <img src="~/images/logos/mulhtishop1.jpg" style="width:200px;height:50px;" alt="Logo" />
+        </span>
+    </a>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- Kullanıcı Menüsü -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="@imageUrl" class="user-image" alt="User Image">
+                        <span class="hidden-xs">@fullName</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="user-header">
+                            <div class="pull-left user-img">
+                                <img src="@imageUrl" class="img-responsive" alt="User">
+                            </div>
+                            <p class="text-left">@fullName<br /><small>@email</small></p>
+                            <div class="view-link text-left"><a href="/Doktor/Profile/Index">Profil Görüntüle</a></div>
+                        </li>
+                        <li><a href="/Doktor/Profile/Index"><i class="icon-profile-male"></i> Profilim</a></li>
+                        <li><a href="#"><i class="icon-envelope"></i> Gelen Kutusu</a></li>
+                        <li class="divider"></li>
+                        <li class="divider"></li>
+                        <li><a href="/Login/SignOut"><i class="fa fa-power-off"></i> Çıkış</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

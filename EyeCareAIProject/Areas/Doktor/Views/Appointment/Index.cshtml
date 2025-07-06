@@ -1,0 +1,40 @@
+﻿@model List<EntityLayer.Concrete.Appointment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Doktor/Views/AdminLayout/Index.cshtml";
+}
+<h2>Randevularım</h2>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-info">Henüz size atanmış bir randevu yok.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tarih</th>
+                <th>Saat</th>
+                <th>Hasta</th>
+                <th>Tedavi</th>
+                <th>Açıklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@(r.AppointmentDate.HasValue ? r.AppointmentDate.Value.ToString("dd.MM.yyyy") : "-")</td>
+
+                    <td>@r.AppointmentTime</td>
+                    <td>@(r.AppUser?.FirstName + " " + r.AppUser?.LastName)</td>
+                    <td>@r.Treatment?.Name</td>
+                    <td>@r.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

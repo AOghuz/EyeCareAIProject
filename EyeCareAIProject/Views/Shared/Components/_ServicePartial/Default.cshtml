@@ -1,0 +1,63 @@
+﻿@using EntityLayer.Concrete
+@model List<Treatment>
+
+<section class="service-section p_relative bg-color-1">
+    <div class="pattern-layer">
+        <div class="pattern-1" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/shape/shape-4.png);"></div>
+        <div class="pattern-2" style="background-image: url(~/Optcare-Pack/Optcare/assets/images/shape/shape-5.png);"></div>
+    </div>
+    <div class="auto-container">
+        <div class="sec-title centred mb_50">
+            <span class="sub-title">Hizmetlerimiz</span>
+            <h2>Hastalıkların Tedavisinde <br />Dünya Lideri</h2>
+        </div>
+        <div class="tabs-box">
+            <div class="tab-btn-box p_relative d_block mb_70 centred">
+                <ul class="tab-btns tab-buttons clearfix">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var item = Model[i];
+                        <li class="tab-btn @(i == 0 ? "active-btn" : "")" data-tab="#tab-@i">
+                            <div class="icon-box"><i class="@item.HomeIcon"></i></div>
+                            <h4>@item.Name</h4>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="tabs-content">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    var item = Model[i];
+                    <div class="tab @(i == 0 ? "active-tab" : "")" id="tab-@i">
+                        <div class="inner-box">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                                    <div class="content_block_two">
+                                        <div class="content-box">
+                                            <div class="text">
+                                                <h3>@item.Name</h3>
+                                                <p>@item.Description</p>
+                                            </div>
+                                            <ul class="list-style-one clearfix">
+                                                <li>Hastalıkları Tedavi Eder</li>
+                                                <li>Rutin Sağlık Testleri Gerçekleştirir</li>
+                                                <li>En İyi Lazer Tedavisi</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                                    <div class="image_block_two">
+                                        <div class="image-box p_relative d_block">
+                                            <figure class="image p_relative d_block"><img src="/TreatmentImages/@item.ImageURL" alt="@item.Name"></figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,104 @@
+﻿@model EyeCareAIProject.Models.DoctorAppUserViewModel
+@{
+    ViewData["Title"] = "Doktor Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post" enctype="multipart/form-data" asp-route-id="@ViewBag.DoctorId">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>TC Kimlik No</label>
+        <input asp-for="UserName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ad</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Soyad</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Cinsiyet</label>
+        <input asp-for="Gender" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Doğum Tarihi</label>
+        <input asp-for="DateOfBirth" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Adres</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Telefon</label>
+        <input asp-for="ContactNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Profil Resmi</label>
+        <input type="file" name="Image" class="form-control" />
+    </div>
+
+    <!-- Doctor Fields -->
+    <div class="form-group">
+        <label>Uzmanlık</label>
+        <input asp-for="Specialization" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Açıklama</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Deneyim</label>
+        <input asp-for="Experience" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Yetenek</label>
+        <input asp-for="Skill" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Eğitim</label>
+        <input asp-for="Education" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Instagram</label>
+        <input asp-for="InstagramUrl" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Twitter</label>
+        <input asp-for="TwitterUrl" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Yeni Şifre (opsiyonel)</label>
+        <input asp-for="NewPassword" type="password" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Tıbbi Birim</label>
+        <select asp-for="TreatmentId" class="form-control" asp-items="ViewBag.Treatments">
+            <option value="">-- Seçiniz --</option>
+        </select>
+    </div>
+
+    <button class="btn btn-success">Güncelle</button>
+</form>

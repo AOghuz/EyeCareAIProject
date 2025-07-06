@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<section class="news-section blog-grid p_relative">
+    <div class="auto-container">
+        <div class="row clearfix">
+            @foreach (var blog in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <img src="/BlogImages/@blog.ImageURL" alt="@blog.Title">
+                                <a href="/Blog/Details/@blog.BlogId"><i class="fas fa-link"></i></a>
+                            </figure>
+                            <div class="lower-content">
+                                <div class="inner">
+                                    <div class="category"><a href="/Treatment/Details/@blog.TreatmentId">@blog.Treatment.Name</a></div>
+                                    <h3><a href="/Blog/Details/@blog.BlogId">@blog.Title</a></h3>
+                                    <ul class="post-info clearfix">
+                                        <li><i class="icon-34"></i>@blog.BlogDate?.ToString("dd MMM, yyyy")</li>
+                                        <li><i class="icon-35"></i><a href="/Blog/Details/@blog.BlogId">@blog.Owner</a></li>
+                                    </ul>
+                                    <p>@blog.LittleDesc</p>
+                                    <div class="link"><a href="/Blog/Details/@blog.BlogId">Devamını Oku.</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="pagination-wrapper centred centred">
+            <ul class="pagination clearfix">
+                <li><a href="blog.html" class="current">1</a></li>
+                <li><a href="blog.html">2</a></li>
+                <li><a href="blog.html">3</a></li>
+                <li class="dot">...</li>
+                <li><a href="blog.html">9</a></li>
+                <li><a href="blog.html"><i class="fas fa-angle-right"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</section>
