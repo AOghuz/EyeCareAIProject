@@ -1,0 +1,24 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Flask API ve model dosyalarınızı kopyalayın
+COPY app.py /app/
+COPY efficientnetb5_finetuned_scripted.pt /app/
+
+# Gerekli sistem bağımlılıklarını kurun
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
+
+# Pip'i güncelleyin
+RUN pip install --upgrade pip
+
+# Paketleri ayrı RUN komutlarında ve alternatif mirror ile yükleyin, timeout süresini artırarak
+RUN pip install --no-cache-dir --default-timeout=1000 -i https://pypi.tuna.tsinghua.edu.cn/simple flask
+RUN pip install --no-cache-dir --default-timeout=1000 -i https://pypi.tuna.tsinghua.edu.cn/simple gunicorn
+RUN pip install --no-cache-dir --default-timeout=1000 -i https://pypi.tuna.tsinghua.edu.cn/simple torch
+RUN pip install --no-cache-dir --default-timeout=1000 -i https://pypi.tuna.tsinghua.edu.cn/simple torchvision
+RUN pip install --no-cache-dir --default-timeout=1000 -i https://pypi.tuna.tsinghua.edu.cn/simple pillow
+
+EXPOSE 5000
+
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
