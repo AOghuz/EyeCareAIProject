@@ -65,30 +65,33 @@ Aşağıda EyeCareAI web uygulamasına ait çeşitli ekran görüntülerini ve p
 
 ### 🏠 Ana Sayfa & Genel Site Arayüzü
 
-![Admin Paneli](wwwroot/SS_Images/sitepng/site1.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site2.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site3.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site4.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site5.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site6.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site7.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site8.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site9.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site10.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site11.png)
-![Admin Paneli](wwwroot/SS_Images/sitepng/site12.png)
+### 🏠 Ana Sayfa & Genel Site Arayüzü
 
-Ziyaretçilere yönelik hazırlanmış, modern ve kullanıcı dostu bir ana sayfa.  
-Kısa tanıtım, yönlendirme butonları ve kullanıcı giriş bağlantıları içerir.
+![Site Görseli 1](wwwroot/SS_Images/sitepng/site1.png)  
+![Site Görseli 2](wwwroot/SS_Images/sitepng/site2.png)  
+![Site Görseli 3](wwwroot/SS_Images/sitepng/site3.png)  
+![Site Görseli 4](wwwroot/SS_Images/sitepng/site4.png)  
+![Site Görseli 5](wwwroot/SS_Images/sitepng/site5.png)  
+![Site Görseli 6](wwwroot/SS_Images/sitepng/site6.png)  
+![Site Görseli 7](wwwroot/SS_Images/sitepng/site7.png)  
+![Site Görseli 8](wwwroot/SS_Images/sitepng/site8.png)  
+![Site Görseli 9](wwwroot/SS_Images/sitepng/site9.png)  
+![Site Görseli 10](wwwroot/SS_Images/sitepng/site10.png)  
+![Site Görseli 11](wwwroot/SS_Images/sitepng/site11.png)  
+![Site Görseli 12](wwwroot/SS_Images/sitepng/site12.png)
+
+Ziyaretçilere yönelik hazırlanmış, modern ve kullanıcı dostu bir ana sayfa tasarımıdır.  
+Kullanıcıları karşılayan tanıtım içerikleri, giriş yönlendirmeleri ve genel navigasyon bu bölümde yer alır.  
+
 
 ---
 
 ### 🧑‍⚕️ Doktor Paneli
 
-![Admin Paneli](wwwroot/SS_Images/Doktorpng/doktor1.png)
-![Admin Paneli](wwwroot/SS_Images/Doktorpng/doktor2.png)
-![Admin Paneli](wwwroot/SS_Images/Doktorpng/doktor3.png)
-![Admin Paneli](wwwroot/SS_Images/Doktorpng/doktor4.png)
+![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor1.png)
+![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor2.png)
+![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor3.png)
+![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor4.png)
 
 - Yapay zeka tarafından analiz edilmiş hasta sonuçlarını görüntüler.
 - Hastanın teşhis geçmişine erişim sağlar.
@@ -117,9 +120,11 @@ Kısa tanıtım, yönlendirme butonları ve kullanıcı giriş bağlantıları i
 
 ### 🧑 Hasta Paneli
 
-![Admin Paneli](wwwroot/SS_Images/hastapng/hasta1.png)
-![Admin Paneli](wwwroot/SS_Images/hastapng/hasta2
-.png)
+### 🧑‍🦰 Hasta Paneli
+
+![Hasta Paneli 1](wwwroot/SS_Images/hastapng/hasta1.png)  
+![Hasta Paneli 2](wwwroot/SS_Images/hastapng/hasta2.png)
+
 - Göz görüntüsü yükleme ve analiz başlatma alanı bulunur.
 - Analiz geçmişi, teşhis sonuçları ve sistem önerileri kullanıcıya gösterilir.
 - Gerekli durumlarda doktora ulaşma bağlantısı sağlanır.
