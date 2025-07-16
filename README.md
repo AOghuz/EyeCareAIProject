@@ -54,12 +54,6 @@ Domain sınıfları (Hasta, Doktor, AnalizSonucu vb.) burada yer alır.
 
 Katmanlar arası veri taşınırken kullanılan optimize edilmiş veri yapılarıdır.
 
-### 🧬 AI Layer (Yapay Zeka Katmanı)
-
-Derin öğrenme (CNN) modeliyle göz görüntüleri analiz edilir ve sonuçlar üretilir.
-
-Bu mimari sayesinde uygulama modüler, kolay geliştirilebilir ve test edilebilir bir yapı kazanmıştır.
-
 ---
 🚀 **Özellikler**
 
