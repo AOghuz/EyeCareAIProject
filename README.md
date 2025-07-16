@@ -101,9 +101,11 @@ Kullanıcıları karşılayan tanıtım içerikleri, giriş yönlendirmeleri ve 
 
 ### 🧑‍💼 Admin Paneli
 
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin1.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin2.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin3.png)
+![Site Görseli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site1.png)
+
+![Site Görseli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site2.png)
+![Site Görseli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site3.png)
+
 ![Admin Paneli](wwwroot/SS_Images/Adminpng/admin4.png)
 ![Admin Paneli](wwwroot/SS_Images/Adminpng/admin5.png)
 ![Admin Paneli](wwwroot/SS_Images/Adminpng/admin6.png)
