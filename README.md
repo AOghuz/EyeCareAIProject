@@ -28,7 +28,39 @@ Erken teşhis sayesinde tedavi sürecinin daha etkili hale gelmesine katkı sağ
 - Swagger: API dokümantasyonu için
 
 ---
+🏗️ Mimari
+EyeCareAI, sürdürülebilir ve test edilebilir bir yapı sunan 6 katmanlı (N-Tier Architecture) mimari ve Repository Design Pattern ile geliştirilmiştir. Bu yapı, kodun sorumluluklarına göre ayrılmasını sağlar.
 
+📚 Katmanlar:
+🎨 Presentation Layer (Sunum Katmanı)
+
+Kullanıcının etkileşimde bulunduğu arayüzdür (Razor Pages & MVC Views).
+
+🧠 Business Layer (İş Katmanı)
+
+Uygulamanın iş mantığını ve kurallarını içerir. Servisler bu katmanda bulunur.
+
+💾 Data Access Layer (Veri Erişim Katmanı)
+
+Entity Framework Core ile veritabanı işlemleri gerçekleştirilir.
+
+Repository Pattern ile veri işlemleri soyutlanmıştır.
+
+📦 Entities Layer (Varlıklar Katmanı)
+
+Domain sınıfları (Hasta, Doktor, AnalizSonucu vb.) burada yer alır.
+
+📤 DTO Layer (Data Transfer Objects)
+
+Katmanlar arası veri taşınırken kullanılan optimize edilmiş veri yapılarıdır.
+
+🧬 AI Layer (Yapay Zeka Katmanı)
+
+Derin öğrenme (CNN) modeliyle göz görüntüleri analiz edilir ve sonuçlar üretilir.
+
+Bu mimari sayesinde uygulama modüler, kolay geliştirilebilir ve test edilebilir bir yapı kazanmıştır.
+
+---
 🚀 **Özellikler**
 
 - ✅ **Görsel Tabanlı Göz Analizi**
