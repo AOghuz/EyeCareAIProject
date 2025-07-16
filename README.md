@@ -101,7 +101,7 @@ Kullanıcıları karşılayan tanıtım içerikleri, giriş yönlendirmeleri ve 
 
 ![Admin Paneli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin1.png)  
 ![Admin Paneli 2](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin2.png)  
-![Admin Paneli 3](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin3.png) 
+![Admin Paneli 3](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin3.jpg) 
 ![Admin Paneli 4](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin4.png)  
 ![Admin Paneli 5](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin5.png)  
 ![Admin Paneli 6](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin6.png)  
