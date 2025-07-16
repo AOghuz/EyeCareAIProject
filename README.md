@@ -1,7 +1,5 @@
 👁️ EyeCareAI - Yapay Zeka Destekli Göz Hastalıklarında Erken Teşhis Yapan Web Uygulaması
 
-![Uygulama Görseli](EyeCareAIProject/wwwroot/SS_Images/sitepng/Ekran görüntüsü 2025-07-16 163308.png)
-
 EyeCareAI, yapay zeka destekli algoritmalar kullanarak göz hastalıklarının erken teşhisini amaçlayan bir web tabanlı uygulamadır.  
 Gelişmiş görüntü işleme ve makine öğrenmesi teknikleriyle göz taramalarını analiz eder, potansiyel hastalık belirtilerini tespit eder ve doktora ön değerlendirme sunar.  
 Erken teşhis sayesinde tedavi sürecinin daha etkili hale gelmesine katkı sağlamayı hedefler.
