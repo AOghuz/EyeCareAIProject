@@ -28,7 +28,7 @@ Erken teşhis sayesinde tedavi sürecinin daha etkili hale gelmesine katkı sağ
 - Swagger: API dokümantasyonu için
 
 ---
-🏗️ Mimari
+### 🧩 Mimari
 EyeCareAI, sürdürülebilir ve test edilebilir bir yapı sunan 6 katmanlı (N-Tier Architecture) mimari ve Repository Design Pattern ile geliştirilmiştir. Bu yapı, kodun sorumluluklarına göre ayrılmasını sağlar.
 
 📚 Katmanlar:
