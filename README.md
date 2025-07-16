@@ -65,20 +65,18 @@ Aşağıda EyeCareAI web uygulamasına ait çeşitli ekran görüntülerini ve p
 
 ### 🏠 Ana Sayfa & Genel Site Arayüzü
 
-### 🏠 Ana Sayfa & Genel Site Arayüzü
-
-![Site Görseli 1](wwwroot/SS_Images/sitepng/site1.png)  
-![Site Görseli 2](wwwroot/SS_Images/sitepng/site2.png)  
-![Site Görseli 3](wwwroot/SS_Images/sitepng/site3.png)  
-![Site Görseli 4](wwwroot/SS_Images/sitepng/site4.png)  
-![Site Görseli 5](wwwroot/SS_Images/sitepng/site5.png)  
-![Site Görseli 6](wwwroot/SS_Images/sitepng/site6.png)  
-![Site Görseli 7](wwwroot/SS_Images/sitepng/site7.png)  
-![Site Görseli 8](wwwroot/SS_Images/sitepng/site8.png)  
-![Site Görseli 9](wwwroot/SS_Images/sitepng/site9.png)  
-![Site Görseli 10](wwwroot/SS_Images/sitepng/site10.png)  
-![Site Görseli 11](wwwroot/SS_Images/sitepng/site11.png)  
-![Site Görseli 12](wwwroot/SS_Images/sitepng/site12.png)
+![Site Görseli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site1.png)  
+![Site Görseli 2](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site2.png)  
+![Site Görseli 3](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site3.png)  
+![Site Görseli 4](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site4.png)  
+![Site Görseli 5](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site5.png)  
+![Site Görseli 6](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site6.png)  
+![Site Görseli 7](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site7.png)  
+![Site Görseli 8](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site8.png)  
+![Site Görseli 9](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site9.png)  
+![Site Görseli 10](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site10.png)  
+![Site Görseli 11](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site11.png)  
+![Site Görseli 12](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site12.png)
 
 Ziyaretçilere yönelik hazırlanmış, modern ve kullanıcı dostu bir ana sayfa tasarımıdır.  
 Kullanıcıları karşılayan tanıtım içerikleri, giriş yönlendirmeleri ve genel navigasyon bu bölümde yer alır.  
@@ -88,10 +86,10 @@ Kullanıcıları karşılayan tanıtım içerikleri, giriş yönlendirmeleri ve 
 
 ### 🧑‍⚕️ Doktor Paneli
 
-![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor1.png)
-![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor2.png)
-![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor3.png)
-![Doktor Paneli](wwwroot/SS_Images/Doktorpng/doktor4.png)
+![Doktor Paneli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Doktorpng/doktor1.png)  
+![Doktor Paneli 2](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Doktorpng/doktor2.png)  
+![Doktor Paneli 3](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Doktorpng/doktor3.png)  
+![Doktor Paneli 4](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Doktorpng/doktor4.png)
 
 - Yapay zeka tarafından analiz edilmiş hasta sonuçlarını görüntüler.
 - Hastanın teşhis geçmişine erişim sağlar.
@@ -101,18 +99,18 @@ Kullanıcıları karşılayan tanıtım içerikleri, giriş yönlendirmeleri ve 
 
 ### 🧑‍💼 Admin Paneli
 
-![Site Görseli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site1.png)
+![Admin Paneli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin1.png)  
+![Admin Paneli 2](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin2.png)  
+![Admin Paneli 3](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin3.png)  
+![Admin Paneli 4](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin4.png)  
+![Admin Paneli 5](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin5.png)  
+![Admin Paneli 6](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin6.png)  
+![Admin Paneli 7](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin7.png)  
+![Admin Paneli 8](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin8.png)  
+![Admin Paneli 9](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin9.png)  
+![Admin Paneli 10](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/Adminpng/admin10.png)
 
-![Site Görseli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site2.png)
-![Site Görseli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/sitepng/site3.png)
-
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin4.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin5.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin6.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin7.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin8.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin9.png)
-![Admin Paneli](wwwroot/SS_Images/Adminpng/admin10.png)
+Yöneticiler için sistem kontrollerinin yapıldığı, kullanıcı ve doktor yönetimi, içerik düzenleme ve duyuru oluşturma gibi özelliklerin bulunduğu admin paneline ait ekran görüntüleridir.
 
 - Kullanıcı (doktor/hasta) yönetimi yapılır.
 - Sistem ayarları, yetkilendirme ve log kayıtları görüntülenebilir.
@@ -120,12 +118,11 @@ Kullanıcıları karşılayan tanıtım içerikleri, giriş yönlendirmeleri ve 
 
 ---
 
-### 🧑 Hasta Paneli
 
 ### 🧑‍🦰 Hasta Paneli
 
-![Hasta Paneli 1](wwwroot/SS_Images/hastapng/hasta1.png)  
-![Hasta Paneli 2](wwwroot/SS_Images/hastapng/hasta2.png)
+![Hasta Paneli 1](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/hastapng/hasta1.png)  
+![Hasta Paneli 2](https://github.com/AOghuz/EyeCareAIProject/raw/master/EyeCareAIProject/wwwroot/SS_Images/hastapng/hasta2.png)
 
 - Göz görüntüsü yükleme ve analiz başlatma alanı bulunur.
 - Analiz geçmişi, teşhis sonuçları ve sistem önerileri kullanıcıya gösterilir.
