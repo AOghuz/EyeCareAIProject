@@ -20,6 +20,8 @@ Erken teşhis sayesinde tedavi sürecinin daha etkili hale gelmesine katkı sağ
 
 ### 🧩 Diğer
 - RESTful API yapısı
+- Identity
+- Ajax
 - Dependency Injection (bağımlılık enjeksiyonu)
 - Model-View-Controller (MVC) mimarisi
 - JSON ile veri alışverişi
