@@ -29,7 +29,7 @@ Erken teşhis sayesinde tedavi sürecinin daha etkili hale gelmesine katkı sağ
 
 ---
 ### 🏗️ Mimari
-EyeCareAI, sürdürülebilir ve test edilebilir bir yapı sunan 6 katmanlı (N-Tier Architecture) mimari ve Repository Design Pattern ile geliştirilmiştir. Bu yapı, kodun sorumluluklarına göre ayrılmasını sağlar.
+EyeCareAI, sürdürülebilir ve test edilebilir bir yapı sunan 5 katmanlı (N-Tier Architecture) mimari ve Repository Design Pattern ile geliştirilmiştir. Bu yapı, kodun sorumluluklarına göre ayrılmasını sağlar.
 
 ### 📚 Katmanlar:
 ### 🎨 Presentation Layer (Sunum Katmanı)
